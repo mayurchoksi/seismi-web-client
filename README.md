@@ -108,9 +108,10 @@ Tested on Linux(Ubuntu) and Windows 7.
 
 ## Further improvements that can be done:
 * Async Javascript loading
-* UX improvments
+* UX improvments (CSS improvements, Include animations for the charts used, etc)
 * Additional end to end test scenarios
 * Configure Protractor for end to end tests on IE, Safari and Opera. 
+* Separate the client and the server applications so that they can be used individually if need be. 
 
 ## Errors to look out for:
 ```
