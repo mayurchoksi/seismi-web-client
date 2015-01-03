@@ -1,0 +1,19 @@
+{
+  "name": "SeismiWebClient",
+  "description": "Seismi Web Client",
+  "version": "1.0.0",
+  "homepage": "https://mayurchoksi@bitbucket.org/mayurchoksi/seismiwebclient.git",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.x",
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-resource":"1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-mocks": "~1.2.x",
+    "foundation":"~5.4.x",
+    "taffydb" : "https://github.com/typicaljoe/taffydb/archive/master.zip",
+    "angular-utils-pagination": "~0.5.x"
+  }
+}

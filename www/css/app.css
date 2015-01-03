@@ -1,0 +1,36 @@
+input.ng-invalid-required {
+    border-style: solid;
+    border-color: red;
+}
+input.ng-valid-required {
+    border-style: solid;
+    border-color: green;
+}
+input.ng-invalid-email {
+    border-style: solid;
+    border-color: red;
+}
+header h4 {
+    text-align: center;
+}
+dt {
+    background-color: #1964b4;
+    color: white;
+}
+dd {
+    border-bottom: 1px solid #CCD6CC;
+}
+p {
+    text-align: center;
+}
+.info {
+    text-align: left;   
+}
+.viewfield {
+    margin-left: 4px
+}
+.geoMarkerMapBorder {
+    border-width: 1px;
+    border-color: #CCD6CC;
+    border-style: solid;
+}

@@ -1,0 +1,56 @@
+<section ng-controller="GoogleChartsController as gChartsCrtl" ng-init="gChartsCrtl.drawChart('GeoMarkerMap')">
+    <article>
+        <!-- Search Filters -->
+        <div class="row" ng-controller="CalendarController as calendarCtrl">
+            <header>
+                <h4>Point on a marker to view summary, Click to view details</h4>
+            </header>
+            <div class="small-3 columns">Filter by</div>
+            <div class="small-3 columns">
+                <select ng-model="selectedYear" ng-change="gChartsCrtl.drawChart('GeoMarkerMap', selectedYear,selectedMonth, minMagnitude)">
+                    <option value="">Year</option>
+                    <option ng-repeat="year in calendarCtrl.getYears()" value="{{year}}">{{year}}</option>
+                </select>
+            </div>
+            <div class="small-3 columns">
+                <select ng-disabled="selectedYear == undefined || selectedYear==''" ng-model="selectedMonth" ng-change="gChartsCrtl.drawChart('GeoMarkerMap', selectedYear,selectedMonth, minMagnitude)">
+                    <option value="">Month</option>
+                    <option ng-repeat="month in calendarCtrl.getMonths()" value="{{month}}">{{month}}</option>
+                </select>
+            </div>
+            <div class="small-3 columns">
+                <select ng-model="minMagnitude" ng-change="gChartsCrtl.drawChart('GeoMarkerMap', selectedYear,selectedMonth, minMagnitude)">
+                    <option value="">Min Magnitude</option>
+                    <option ng-repeat="magnitude in [1,2,3,4,5,6,7,8]" value="{{magnitude}}">{{magnitude}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" class="geoMarkerMapBorder">
+            <!-- Geo Map Marker Place holder -->
+            <div class="small-12 columns" id="chart_div"></div>
+        </div>
+        <p>
+
+            <!-- Marker Details -->
+            <div class="row" ng-show="selectedEntity.timedate">
+                <div class="small-12 columns">
+                    <dl>
+                        <dt>
+                            <div class="viewfield">{{selectedEntity.timedate}}</div>
+                        </dt>
+                        <dd>
+                            <div class="viewfield">Region: {{selectedEntity.region}}</div>
+                        </dd>
+                        <dd>
+                            <div class="viewfield">Magnitude: {{selectedEntity.magnitude}}</div>
+                        </dd>
+                        </dd>
+                        <dd>
+                            <div class="viewfield">Depth: {{selectedEntity.depth}}</div>
+                        </dd>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+    </article>
+</section>

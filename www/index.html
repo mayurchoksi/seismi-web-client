@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="components/foundation/css/foundation.css" />
+    <script type="text/javascript" src="components/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+    google.load('visualization', '1', {
+        'packages': ['geochart', 'corechart']
+    });
+    </script>
+    <title>Seismi Web Client</title>
+</head>
+
+<body>
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <!-- navigation -->
+            <div ng-include="'partials/navigation.html'"></div>
+            <div id="main" class="large-12 small-12 columns">
+                <!-- content -->
+                <div ng-view>
+                </div>
+            </div>
+            <a class="exit-off-canvas"></a>
+            <footer></footer>
+        </div>
+    </div>
+
+    <!-- Libraries when accessed from CDNs are quicker to download. 
+    Hence in production CDNs (if they exists) should be used for libaries (jquery, angularjs, foundation, etc...) -->
+    <script type="text/javascript" src="components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="components/angular/angular.js"></script>
+    <script type="text/javascript" src="components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="components/foundation/js/foundation.min.js"></script>
+    <script type="text/javascript" src="components/foundation/js/foundation/foundation.slider.js"></script>
+    <script type="text/javascript" src="components/taffydb/taffy-min.js"></script>
+    <script type="text/javascript" src="components/angular-utils-pagination/dirPagination.js"></script>
+
+    <!-- Application scripts -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript">
+    appBootstrapper.initialize();
+    </script>
+</body>
+
+</html>

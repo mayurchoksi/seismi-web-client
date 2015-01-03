@@ -1,0 +1,108 @@
+<section ng-controller="SeismicEventController as seismicEventCtrl" ng-init="seismicEventCtrl.getEqs()">
+    <article>
+        <div>
+
+            <!-- Search Filters -->
+            <div class="row" ng-controller="CalendarController as calendarCtrl">
+                <p></p>
+                <div class="small-3 columns">Filter by</div>
+                <div class="small-3 columns">
+                    <select ng-model="selectedYear" ng-change="seismicEventCtrl.getEqs(selectedYear,selectedMonth, minMagnitude)">
+                        <option value="">Year</option>
+                        <option ng-repeat="year in calendarCtrl.getYears()" value="{{year}}">{{year}}</option>
+                    </select>
+                </div>
+                <div class="small-3 columns">
+                    <select ng-disabled="selectedYear == undefined || selectedYear==''" ng-model="selectedMonth" ng-change="seismicEventCtrl.getEqs(selectedYear,selectedMonth, minMagnitude)">
+                        <option value="">Month</option>
+                        <option ng-repeat="month in calendarCtrl.getMonths()" value="{{month}}">{{month}}</option>
+                    </select>
+                </div>
+                <div class="small-3 columns">
+                    <select ng-model="minMagnitude" ng-change="seismicEventCtrl.getEqs(selectedYear,selectedMonth, minMagnitude)">
+                        <option value="">Min Magnitude</option>
+                        <option ng-repeat="magnitude in [1,2,3,4,5,6,7,8]" value="{{magnitude}}">{{magnitude}}</option>
+                    </select>
+                </div>
+                <p class="info">Events count: {{seismicEventCtrl.eventCount}}</p>
+            </div>
+
+            <div class="row" ng-show="seismicEventCtrl.eventCount <= 0">
+                <p>No records found..</p>
+            </div>
+            <!-- List of Events -->
+            <div ng-show="seismicEventCtrl.eventCount > 0">
+                <div class="visible-for-small-only">
+                    <div class="row">
+                        <dl>
+                            <div dir-paginate="earthquake in seismicEventCtrl.earthquakes | filter:search | itemsPerPage: 10">
+                                <dt>
+                                    <div class="viewfield">{{earthquake.timedate}}</div>
+                                </dt>
+                                <dd>
+                                    <div class="viewfield">Region: {{earthquake.region}}</div>
+                                </dd>
+                                <dd>
+                                    <div class="viewfield">Magnitude: {{earthquake.magnitude}}</div>
+                                </dd>
+                                </dd>
+                                <dd>
+                                    <div class="viewfield">Depth: {{earthquake.depth}}</div>
+                                </dd>
+                                </dd>
+                            </div>
+                        </dl>
+                        <div class="row">
+                            <dir-pagination-controls boundary-links="true" template-url="partials/templates/dirPagination.tpl.html"></dir-pagination-controls>
+                        </div>
+                    </div>
+                </div>
+                <div class="visible-for-medium-up">
+                    <div class="row">
+                        <table class="hide-for-small">
+                            <thead>
+                                <tr>
+                                    <th>Date/Time</th>
+                                    <th>Region</th>
+                                    <th>Magnitude</th>
+                                    <th>Depth</th>
+                                    <th>Longitude</th>
+                                    <th>Latitude</th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input type="text" value="" ng-model="search.timedate" />
+                                    </th>
+                                    <th>
+                                        <input type="text" value="" ng-model="search.region" />
+                                    </th>
+                                    <th>
+                                        <input type="text" value="" ng-model="search.magnitude" />
+                                    </th>
+                                    <th>
+                                        <input type="text" value="" ng-model="search.depth" />
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="earthquake in seismicEventCtrl.earthquakes | filter:search | itemsPerPage: 10">
+                                    <td>{{earthquake.timedate}}</td>
+                                    <td>{{earthquake.region}}</td>
+                                    <td>{{earthquake.magnitude}}</td>
+                                    <td>{{earthquake.depth}}</td>
+                                    <td class="hide-for-small">{{earthquake.lon}}</td>
+                                    <td class="hide-for-small">{{earthquake.lat}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <dir-pagination-controls boundary-links="true" template-url="partials/templates/dirPagination.tpl.html"></dir-pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
