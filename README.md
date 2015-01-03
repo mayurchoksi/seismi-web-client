@@ -68,9 +68,10 @@ AngularJS embraces the following design patters and hence is inbuilt when used
 * Facade
 
 ## Reusability
-* The Earthquake datasource can be modified by updating the Datasource URL in only one location.
+* The Earthquake datasource can be modified by updating the Datasource URL in the server module. No changes are required on the client application.
+* The application can be packages as a phonegap application with minor modifications. 
+* The solution can be deployed to any Platform (OS/Hardware) as along as NodeJS exists for that Platform.
 * The solution can be reused as a skeleton for any other similar solutions.
-* The solution can be deployed to and Platform (OS/Hardware) as along as NodeJS exists for that Platform.
 
 ## Development Process
 Sublime text with AngularJs plugin was used for development. Was continously integrated and automatically tested on NodeJS running locally (using Karma, Protractor and node packages like express, connect, and cors among others.). Chrome and Firefox was used for testing during development. OS Used: Linix.
