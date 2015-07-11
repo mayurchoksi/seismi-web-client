@@ -49,6 +49,7 @@ Once NodeJs is installed follow the below steps:
 ```
 git clone https://github.com/mayurchoksi/seismi-web-client.git
 cd seismi-web-client
+On Linux run command to create a symlink in your path : sudo ln -s `which nodejs` /usr/local/bin/node
 npm install
 ```
 
