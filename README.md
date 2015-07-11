@@ -123,4 +123,4 @@ Error: listen EADDRINUSE
 
 Verfiy that the application is not already up/running.
 
-### Application hosted on Heroku for a quick preview: (https://seismic-web-client.herokuapp.com)
+### Application hosted on Heroku for a quick preview: (https://seismi-web-client.herokuapp.com/)
